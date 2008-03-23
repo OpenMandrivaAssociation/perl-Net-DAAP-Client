@@ -11,6 +11,7 @@ Source: http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Net-DAAP-Client-%{ver
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch: noarch
 BuildRequires: perl-Digest-MD5-M4p
+BuildRequires: perl-Net-DAAP-DMAP
 
 %description
 dapple is a DAAP library for Perl.  DAAP is the protocol built
