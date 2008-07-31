@@ -3,7 +3,7 @@
 Summary: Cient for Apple iTunes DAAP service
 Name: perl-Net-DAAP-Client
 Version: 0.42
-Release: %mkrel 3
+Release: %mkrel 4
 License: Artistic
 Group: Development/Perl
 URL: http://search.cpan.org/dist/Net-DAAP-Client/
