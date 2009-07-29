@@ -1,18 +1,21 @@
-%define realname Net-DAAP-Client
+%define upstream_name    Net-DAAP-Client
+%define upstream_version 0.42
 
-Summary: Cient for Apple iTunes DAAP service
-Name: perl-Net-DAAP-Client
-Version: 0.42
-Release: %mkrel 4
-License: Artistic
-Group: Development/Perl
-URL: http://search.cpan.org/dist/Net-DAAP-Client/
-Source: http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Net-DAAP-Client-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch: noarch
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    Cient for Apple iTunes DAAP service
+License:    Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires: perl-Digest-MD5-M4p
 BuildRequires: perl-libwww-perl
 BuildRequires: perl-Net-DAAP-DMAP
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 dapple is a DAAP library for Perl.  DAAP is the protocol built
@@ -22,7 +25,7 @@ This is an incomplete release.  There are missing features.
 See the TODO file for future plans.
 
 %prep
-%setup -q -n %{realname}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
