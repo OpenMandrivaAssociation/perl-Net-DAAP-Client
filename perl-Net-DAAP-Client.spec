@@ -1,21 +1,21 @@
 %define upstream_name    Net-DAAP-Client
 %define upstream_version 0.42
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Cient for Apple iTunes DAAP service
-License:    Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/%{upstream_name}-%{upstream_version}.tar.bz2
+Summary:	Cient for Apple iTunes DAAP service
+License:	Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/%{upstream_name}-%{upstream_version}.tar.bz2
 
-BuildRequires: perl-Digest-MD5-M4p
-BuildRequires: perl-libwww-perl
-BuildRequires: perl-Net-DAAP-DMAP
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Digest::MD5::M4p)
+BuildRequires:	perl-libwww-perl
+BuildRequires:	perl(Net::DAAP::DMAP)
+BuildArch:	noarch
 
 %description
 dapple is a DAAP library for Perl.  DAAP is the protocol built
@@ -28,23 +28,40 @@ See the TODO file for future plans.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-%{__make}
+perl Makefile.PL INSTALLDIRS=vendor
+make
 
 %check
-%{__make} test
+make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-rm -rf $RPM_BUILD_ROOT/%{perl_vendorarch}
-
-%clean
-%{__rm} -rf %{buildroot}
+rm -rf %{buildroot}%{perl_vendorarch}
 
 %files
-%defattr(-, root, root, 0755)
 %doc README Changes
 %doc %{_mandir}/man3/*
 %{perl_vendorlib}/Net/DAAP/Client.pm
 %{perl_vendorlib}/Net/DAAP/Client/*
+
+%changelog
+* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.420.0-1mdv2010.0
++ Revision: 404067
+- rebuild using %%perl_convert_version
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.42-4mdv2009.0
++ Revision: 258003
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 0.42-3mdv2009.0
++ Revision: 246055
+- rebuild
+
+* Sun Mar 23 2008 Stefan van der Eijk <stefan@mandriva.org> 0.42-1mdv2008.1
++ Revision: 189590
+- BuildRequires: perl-libwww-perl
+- add missing BuildRequires: perl-Net-DAAP-DMAP
+- fix License & Group
+- import perl-Net-DAAP-Client
+
+
