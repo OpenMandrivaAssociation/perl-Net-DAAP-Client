@@ -2,14 +2,14 @@
 %define upstream_version 0.42
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	Cient for Apple iTunes DAAP service
 License:	Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://metacpan.org/dist/Net-DAAP-Client
+Source0:	https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Net-DAAP-Client-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
