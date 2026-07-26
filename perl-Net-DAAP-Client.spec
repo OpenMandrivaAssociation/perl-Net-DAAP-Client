@@ -1,15 +1,13 @@
 %define upstream_name    Net-DAAP-Client
-%define upstream_version 0.42
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.42
+Release:	6
 
 Summary:	Cient for Apple iTunes DAAP service
 License:	Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Net-DAAP-Client
-Source0:	https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Net-DAAP-Client-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Net-DAAP-Client-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -26,7 +24,7 @@ This is an incomplete release.  There are missing features.
 See the TODO file for future plans.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -48,9 +46,7 @@ rm -rf %{buildroot}%{perl_vendorarch}
 %changelog
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.420.0-1mdv2010.0
 + Revision: 404067
-- rebuild using %%perl_convert_version
-
-* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.42-4mdv2009.0
+- rebuild using %0.42 Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.42-4mdv2009.0
 + Revision: 258003
 - rebuild
 
